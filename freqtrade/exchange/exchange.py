@@ -576,6 +576,7 @@ class Exchange:
         if any(v == 'market' for k, v in order_types.items()):
             if not self.exchange_has('createMarketOrder'):
                 raise OperationalException(
+                    f'k {k} v {v} '
                     f'Exchange {self.name} does not support market orders.')
 
         if (order_types.get("stoploss_on_exchange")
